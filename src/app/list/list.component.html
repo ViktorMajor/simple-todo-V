@@ -1,0 +1,14 @@
+<div class="task-list">
+  <ul>
+    <li *ngFor="let task of tasks">
+      <div class="task-title">{{ task.title }}</div>
+      <div class="task-description">{{ task.description }}</div>
+      <div class="task-status">
+        <span *ngIf="task.isDone; else notDone">Elvégezve</span>
+        <ng-template #notDone><span>Nincs elvégezve</span></ng-template>
+        <button (click)="toggleIsDone(task.id)">Állapot váltása</button>
+        <button (click)="deleteTask(task.id)">Törlés</button>
+      </div>
+    </li>
+  </ul>
+</div>
